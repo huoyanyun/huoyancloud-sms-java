@@ -80,9 +80,6 @@ public class SmsClient {
         return schema + "://" + domain + "?" + sortQueryStringTmp + "Signature=" + sign;
     }
 
-    public String sendSms(String phoneNumber, String signName, String templateCode, String templateParam) {
-        return sendSms(phoneNumber, signName, templateCode, templateParam, "");
-    }
 
     public String sendSms(String phoneNumber, String signName, String templateCode, String templateParam, String outId) {
         HashMap<String, String> params = new HashMap<String, String>();
@@ -92,6 +89,17 @@ public class SmsClient {
         params.put("TemplateParam", templateParam);
         params.put("OutId", outId);
         params.put("Action", "SendSms");
+        return request(params);
+    }
+
+    public String querySendDetails(String phoneNumber, String bizId, String sendDate, String pageSize, String currentPage) {
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("PhoneNumbers", phoneNumber);
+        params.put("BizId", bizId);
+        params.put("SendDate", sendDate);
+        params.put("PageSize", pageSize);
+        params.put("CurrentPage", currentPage);
+        params.put("Action", "QuerySendDetails");
         return request(params);
     }
 

@@ -8,7 +8,7 @@ public class SmsTest {
      */
     public static void main(String[] args) {
         SmsClient client = new SmsClient("XXXX", "XXX");
-        String res = client.sendSms("XXXX", "XXXX", "XXXX", "XXXX");
+        String res = client.sendSms("XXXX", "XXXX", "XXXX", "XXXX", "XXX");
         System.out.println(res);
     }
 }
